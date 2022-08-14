@@ -2,7 +2,7 @@ function jlread(io, ::Type{FilterPipeline})
     version = jlread(io, UInt8)
     nfilters = jlread(io, UInt8)
     if version == 1
-        skip(cio, 6)
+        skip(io, 6)
         filters = map(1:nfilters) do _
             id = jlread(io, UInt16)
             name_length = jlread(io, UInt16)
