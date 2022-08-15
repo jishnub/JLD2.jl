@@ -125,7 +125,6 @@ end
 function jlconvert(rr::ReadRepresentation{String, FixedLengthAsciiString{NullTerminated,N}}, ::JLDFile, ptr::Ptr, ::RelOffset) where N
     data = Vector{UInt8}(undef, N)
     unsafe_copyto!(pointer(data), convert(Ptr{UInt8}, ptr), N)
-    @show data
     String(data)#1:end-1])
 end
 odr_sizeof(x::AsciiString) = x.length
