@@ -278,7 +278,7 @@ end
 
 function read_compressed_array!(v::Array{T}, f::JLDFile{MmapIO},
                                 rr::ReadRepresentation{T,RR},
-                                data_length::Int64,
+                                data_length::Integer,
                                 filters
                                 ) where {T,RR}
 
@@ -308,7 +308,7 @@ end
 
 function read_compressed_array!(v::Array{T}, f::JLDFile{IOStream},
                                 rr::ReadRepresentation{T,RR},
-                                data_length::Int64,
+                                data_length::Integer,
                                 filters,
                                 ) where {T,RR}
     invoke_again, decompressors = get_decompressor(filters)
