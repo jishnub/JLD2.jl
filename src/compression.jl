@@ -12,7 +12,7 @@ function jlread(io, ::Type{FilterPipeline})
                 name = ""
             else
                 name = read_bytestring(io)
-                skip(cio, 8-mod1(sizeof(name), 8)-1)
+                skip(io, 8-mod1(sizeof(name), 8)-1)
             end
             client_data = jlread(io, UInt32, nclient_vals)
             isodd(nclient_vals) && skip(io, 4)
